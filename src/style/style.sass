@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 $quantity: 88
 
 html, body
@@ -52,8 +54,8 @@ html, body
 
   @keyframes move#{$i}
     @for $step from 0 through $steps
-      #{$step * (100 / $steps)}%
-        transform: translateX(random(100) - 50vw) translateY(random(100) - 50vh) scale(random(75) / 100 + .25)
+      #{$step * math.div(100, $steps)}%
+        transform: translateX(random(100) - 50vw) translateY(random(100) - 50vh) scale(math.div(random(75), 100) + .25)
 
 @keyframes drift
   0%
